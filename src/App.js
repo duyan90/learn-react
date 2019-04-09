@@ -4,7 +4,6 @@ import Header from './component/layout/header';
 import AddTodo from './component/addTodo';
 import Todo from './component/todo';
 import About from './component/pages/about';
-import axios from 'axios';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import store from './component/store';
@@ -14,14 +13,7 @@ class App extends Component {
   //   loading: false
   // }
 
-  // addTodo = (title)=>{
-  //   axios.post('https://jsonplaceholder.typicode.com/todos', {
-  //       title,
-  //       completed: false
-  //   }).then((response) =>{
-  //     this.setState({todos: [...this.state.todos, response.data]}); 
-  //   })
-  // };
+
 
   // markComplete = (id)=>{
   //     this.setState({todos: this.state.todos.map(todo =>{
@@ -45,8 +37,9 @@ class App extends Component {
           <Router>
               <div className="App" >
                 <Header />
-                <Route exact path='/' render= { props =>(
+                <Route exact path='/' render= { () =>(
                   <React.Fragment>
+                    <AddTodo/>
                     <Todo />
                   </React.Fragment>
                 )}/>

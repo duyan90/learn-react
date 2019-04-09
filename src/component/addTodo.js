@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-
-export default class AddTodo extends Component {
+import {connect} from 'react-redux';
+import { addNewTodo } from '../action/todoAction';
+class AddTodo extends Component {
   state = {
     title: ''
   }
@@ -22,8 +23,7 @@ export default class AddTodo extends Component {
     if(!this.state.title){
       return null;
     }
-    this.props.AddTodo(this.state.title);
-    this.setState({title: ''});
+    this.props.addNew(this.state.title);
   }
 }
 
@@ -34,3 +34,11 @@ const btnStyle = {
 const formStyle = {
   display: 'flex'
 }
+const mapStateToProp = state => ({
+  posts: state.posts.items
+})
+
+export default connect(
+  mapStateToProp,
+  { addNew: addNewTodo }
+)(AddTodo);

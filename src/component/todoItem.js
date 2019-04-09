@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class TodoItem extends Component {
   render() {
-    const {id, title} = this.props.todo;
+    const {id, title, text} = this.props.todo;
+    console.log(this.props.todo);
     return (
       <div style= {this.getStyle()}>
-        <p>{title}</p>
+        <h3>{title}</h3>
+        <button style= {btnStyle} >x</button>
       </div>
+      
     )
   }
 
